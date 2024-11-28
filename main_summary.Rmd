@@ -1,0 +1,24 @@
+---
+title: 'Theory-driven analysis of ecological data'
+subtitle: 'Summary of the course'
+output: 
+  pdf_document:
+        number_sections: true
+---
+
+```{r, echo=FALSE}
+setwd(here::here())
+```
+
+
+```{r child = 'day1_summarypage.Rmd'}
+```
+
+```{r child = 'day2_summarypage.Rmd'}
+```
+
+```{r child = 'day3_summarypage.Rmd'}
+```
+
+```{r child = 'day4_summarypage.Rmd'}
+```

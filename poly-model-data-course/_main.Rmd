@@ -84,11 +84,23 @@ Placeholder
 
 <!--chapter:end:03-what-models.Rmd-->
 
+
 # Temporal data (Day 2)
 
-## Introduction
+Placeholder
 
+
+## Introduction
+## Building a pop dyn model
+### Births and deaths immigration and emigration (not treated in this day)
+### including density dependence: the logistic
+### getting an intuition for density dependence: deriving density dependence from consumer-resource model
+### getting an intuition for carrying capacity: the nestbox model
+## confronting with data
+### sibley and likelhood ridges et al
+### errors
 ## Conclusion
+## References
 
 <!--chapter:end:04-Temp-data.Rmd-->
 
@@ -117,7 +129,9 @@ output:
 
 ## Preamble of the script used during the course
 
-```{r}
+```{r load packages, message = FALSE}
+#Sys.unsetenv("GITHUB_PAT")
+#path = here::here("poly-model-data-course")
 library(cheddar)
 library(igraph)
 library(vegan)
@@ -125,24 +139,19 @@ library(sbm)
 library(alluvial)
 library(faux)
 library(devtools) 
-#Sys.unsetenv("GITHUB_PAT")
-#install_github("FMestre1/fw_package")
-library(FWebs)
 library(matlib)
 library(calculus)
 library(pracma)
+library(here)
+library(ggplot2)
 source('functions_network.R')
-
-####In FWebs, there is a large list of food webs called mg1
-sapply(1:length(mg1[[1]]),function(x) dim(as.matrix(mg1[[1]][[x]]))[1])
-
-####Extract data from web 1,223
-mat<-as.matrix(mg1[[1]][[223]])
+source('crutch_functions.R')
+load("mg1.Rdata")
+####Extract data from web 1,433
+mat<-as.matrix(mg1[[1]][[433]])
 plotMyMatrix(mat)
 net.mat<-graph_from_adjacency_matrix(mat,mode="directed")
 ```
-
-TO DO: change the way FWebs is used because it does not compile on Mac and Linux...
 
 ## Networks and associated definitions
 
@@ -263,7 +272,7 @@ conn
 
 ### Crash course: matrices
 Matrices are mathematical objects that represent tables, i.e. have rows and columns. The element at row $i$ and column $j$ of matrix $M$ is often noted $m_{ij}$.
-Matrices and vectors follow a strange multiplication operation, noted with %*% in R (rather than * which encodes a more plastic multiplication operation).
+Matrices and vectors follow a strange multiplication operation, noted with `%*%` in R (rather than `*` which encodes a more plastic multiplication operation).
 
 ```{r}
 m<-matrix(rbinom(9,1,0.5),nrow=3)
@@ -300,7 +309,7 @@ $$J\left(\overrightarrow{x}^*\right) = \left.\left(\partial F_i/\partial x_j\rig
 Formal computations of Jacobian matrices can be done with R using the package calculus:
 
 ```{r}
-#jacobian(c("r*n1*(1-n1/k)-a*n1*n2/(1+h*n1)","b*n1*n2/(1+h*n1)-d*n2"), var = c("n1", "n2"))
+jacobian(c("r*n1*(1-n1/k)-a*n1*n2/(1+h*n1)","b*n1*n2/(1+h*n1)-d*n2"), var = c("n1", "n2"))
 ```
 
 ## Theories and notable results
@@ -638,18 +647,4 @@ Yodzis, P. (1998) Local trophodynamics and the interaction of marine mammals and
 
 
 <!--chapter:end:06-Networks.Rmd-->
-
-# Interaction networks, food webs, and complexity in ecology - one-page summary
-
-During this day on interaction networks, we will first (1) introduce the concepts and definitions associated with networks of interactions, and then tackle two general questions regarding interaction networks: (2) how to simplify complexity by considering random matrices to model interactions and (3) how to assess the link between complexity and dynamical stability in empirical data. As a conclusion to the thematic day, we will (4) delve into multiplex networks, i.e. networks combining interactions of different types.
-
-The introductory course covers a variety of topics including networks and their definition, their representation as matrix and their interpretation in dynamical model. Notable theoretical results based on network properties are then reviewed, including results on stability and feasibility, the search for invariant properties structuring the topology of empirical networks, and the general framework of robustness studies, i.e. studies aimed at understanding how species removal affect the rest of the network through cascading extinctions. The introductory course is concluded by a primer on network statistics commonly used to characterize interaction networks, including degree distributions, the randomizations used to generate null predictions, and the models used to assess groups of species interacting in the same way or interacting in a nested fashion.
-
-The simplification of complexity through large ecosystems and random matrices is then presented in a series of steps. The emerging simplicity of systems comprising many species is  explained, with a particular focus on some fingerprint properties that could characterize the predictions of competing models. The use of random interaction matrix can be considered as a shortcut to obtaining such properties, as well as a path to analytical tractability of complex disordered systems.
-
-The link between complexity and stability of empirical food webs is the focus of the third part of the day. By using simple relationships between interaction coefficients and biomasses, and then computing Jacobian matrices, which characterize system stability, the complexity-stability relationship of empirical food webs can be compared with that of their randomized counterparts, which in turn allows for a close examination of ecological hypotheses explaining food web stability.
-
-The last presentation of the day introduces multiplex networks of interactions, i.e. networks in which several types of interactions are represented together. Following on the idea of keystone predators, as introduced by the work of R. Paine on intertidal communities, the modulation of trophic interactions and species parameters by non-trophic interactions is explored through dynamical models confronted with existing data on intertidal systems with both competition and resource consumption. The parallel topologies of trophic and non-trophic interaction networks are then gauged through block models  and random network models in order to assess the effect of network structure on food web feasibility, stability and total biomass. 
-
-<!--chapter:end:day4_summarypage.Rmd-->
 

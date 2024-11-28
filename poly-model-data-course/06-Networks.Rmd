@@ -7,7 +7,9 @@ output:
 
 ## Preamble of the script used during the course
 
-```{r}
+```{r load packages, message = FALSE}
+#Sys.unsetenv("GITHUB_PAT")
+#path = here::here("poly-model-data-course")
 library(cheddar)
 library(igraph)
 library(vegan)
@@ -15,24 +17,19 @@ library(sbm)
 library(alluvial)
 library(faux)
 library(devtools) 
-#Sys.unsetenv("GITHUB_PAT")
-#install_github("FMestre1/fw_package")
-library(FWebs)
 library(matlib)
 library(calculus)
 library(pracma)
+library(here)
+library(ggplot2)
 source('functions_network.R')
-
-####In FWebs, there is a large list of food webs called mg1
-sapply(1:length(mg1[[1]]),function(x) dim(as.matrix(mg1[[1]][[x]]))[1])
-
-####Extract data from web 1,223
-mat<-as.matrix(mg1[[1]][[223]])
+source('crutch_functions.R')
+load("mg1.Rdata")
+####Extract data from web 1,433
+mat<-as.matrix(mg1[[1]][[433]])
 plotMyMatrix(mat)
 net.mat<-graph_from_adjacency_matrix(mat,mode="directed")
 ```
-
-TO DO: change the way FWebs is used because it does not compile on Mac and Linux...
 
 ## Networks and associated definitions
 
@@ -153,7 +150,7 @@ conn
 
 ### Crash course: matrices
 Matrices are mathematical objects that represent tables, i.e. have rows and columns. The element at row $i$ and column $j$ of matrix $M$ is often noted $m_{ij}$.
-Matrices and vectors follow a strange multiplication operation, noted with %*% in R (rather than * which encodes a more plastic multiplication operation).
+Matrices and vectors follow a strange multiplication operation, noted with `%*%` in R (rather than `*` which encodes a more plastic multiplication operation).
 
 ```{r}
 m<-matrix(rbinom(9,1,0.5),nrow=3)
@@ -190,7 +187,7 @@ $$J\left(\overrightarrow{x}^*\right) = \left.\left(\partial F_i/\partial x_j\rig
 Formal computations of Jacobian matrices can be done with R using the package calculus:
 
 ```{r}
-#jacobian(c("r*n1*(1-n1/k)-a*n1*n2/(1+h*n1)","b*n1*n2/(1+h*n1)-d*n2"), var = c("n1", "n2"))
+jacobian(c("r*n1*(1-n1/k)-a*n1*n2/(1+h*n1)","b*n1*n2/(1+h*n1)-d*n2"), var = c("n1", "n2"))
 ```
 
 ## Theories and notable results

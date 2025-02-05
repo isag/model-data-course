@@ -26,3 +26,11 @@ inst/doc
 *.jpg
 *.png
 *.tiff
+
+# Folder  ----
+poly-model-data-course/_bookdown_files/_main_files/figure-html/**
+poly-model-data-course/_bookdown_files/_main_files/figure-latex/**
+poly-model-data-course/_book/_main_files/figure-html/**
+poly-model-data-course/_book/_main_files/fig06Networks/**
+
+

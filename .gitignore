@@ -21,8 +21,8 @@ README.html
 inst/doc
 
 # Images ----
-.csv
-.pdf
-.jpg
-.png
-.tiff
+*.csv
+*.pdf
+*.jpg
+*.png
+*.tiff

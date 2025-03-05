@@ -1,11 +1,7 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 # Introduction to theoretical models and link to data (Day 1)
 
 ## Why mathematical models? 
+
 In this introduction, we first discuss if we still need theory at the age of big data. We define what is theory and what is a model in a general way, and more specifically mathematical models as used in ecology. We develop on the necessary trade-offs involved in the construction of a model, in a relation of its specific goals in science: understanding or predicting. We then discuss to which extent we can reach these goal by instead using artificial intelligence informed by big data. Then we come back to the principles of the scientific method and elaborate on how mathematical models participate in this cycle of scientific knowledge production involving data and theory. We finally advocate for the necessity of deeper interactions between data and theory despite some identified current weakness in this link. 
 
 
@@ -21,7 +17,7 @@ In this third part, we will first try to apply what we've just discuss on a spec
 
 ## How to analyze a model?
 
-In the fourth part, we  see how we classically analyse a mathematical model (ODEs):	search for equilibria, from analytical expression to graphical representations; run a local stability analysis of these equilibria to study the behaviour of the model; look for the dependence to initial conditions. In a second time we see the different ways to use a theoretical model to answer different types of research questions (parameter exploration, change the model structure, *in sillico* experiments), and we  finally present how to	assess the robustness of our conclusions (sensitivity analysis).
+In the fourth part, we  see how we classically analyse a mathematical model (ODEs):	search for equilibria, from analytical expression to graphical representations; run a local stability analysis of these equilibria to study the behaviour of the model; look for the dependence to initial conditions. In a second time we see the different ways to use a theoretical model to answer different types of research questions (parameter exploration, change the model structure, *in sillico* experiments), and we finally present how to	assess the robustness of our conclusions (sensitivity analysis).
 
 
 ## Making a link between models and data 

@@ -1,11 +1,7 @@
----
-output:
-  pdf_document: default
-  html_document: default
----
 # Spatial data (Day 3)
 
 ## Objectives and introduction
+
 Compared to Day 2, we will consider a slighly larger scale, considering communities of several species, distributed over a large spatial extent. 
 The typical spatial dataset would consist in a community matrix (sites*species), with either presence/absence data, detection/non detection data (if there is imperfect detection), or abundance data (density or number of individuals). Possibly, one may have presence only data, which causes specific issues. Ideally, this community matrix is observed repeatedly at several points in time (time series), which significantly expands the range of methods and models we can mobilize, comapred to static (snapshot) datasets.
 This basic data set is often complemented with other relavent information describing species (traits, phylogenetic relationships$\dots$) and/or locations (coordinates, environental descriptors\dots). 
@@ -31,5 +27,7 @@ We discuss the IB model and its predictions, reflecting on why the curves are no
 We discuss possible extensions of patch-occupancy models: -1- explicit space (IFM models from Hanski and followers); -2- competition/colonization trade-offs; -3- spatial networks; -4- trophic webs and others. A more profound extension is to include an explicit description of population dynamics within patches. Models quickly become complicated and need to be simulated. 
 One exception is Hubbel's neutral model, which has a dynamics for species abundances in patches and remains reasonably tractable. An example of simulation framework for metacommunities is Thompson et al. (2020) Ecology Letters. This is the one we will use to simulate data in the afternoon practical.
 
+
 ## Conclusion
+
 We conclude by reviewing he different approaches possible and compare their advantages and drawbacks. We discuss how one approach is not universally better than the others, but rather a set of approaches can yield complementary insights, and different approaches are more papropriate depending on the underlying question and the type/amount of data available.

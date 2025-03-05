@@ -3,7 +3,11 @@ title: 'Theory-driven analysis of ecological data'
 subtitle: 'Summary of the course'
 output: 
   pdf_document:
-        number_sections: true
+    number_sections: true
+    latex_engine: xelatex
+    keep_tex: false
+bibliography: references/references.bib
+csl: references/ecology-letters.csl
 ---
 
 ```{r, echo=FALSE}
@@ -11,14 +15,16 @@ setwd(here::here())
 ```
 
 
-```{r child = 'day1_summarypage.Rmd'}
+```{r child='parts/day1_summarypage.Rmd'}
 ```
 
-```{r child = 'day2_summarypage.Rmd'}
+```{r child='parts/day2_summarypage.Rmd'}
 ```
 
-```{r child = 'day3_summarypage.Rmd'}
+```{r child='parts/day3_summarypage.Rmd'}
 ```
 
-```{r child = 'day4_summarypage.Rmd'}
+```{r child='parts/day4_summarypage.Rmd'}
 ```
+
+# References
